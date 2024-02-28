@@ -1,2 +1,25 @@
 <h1>Gerador de números da Mega-Sena</h1>
-<%= generate_numbers%>
+<% if result == :error %>
+  <% data.each do |err| %>
+    <p><%= err %></p>
+  <% end %>
+<% end %>
+
+<% if result == :ok %>
+  <div class="container text-center">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">Números</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% data.each do |number| %>
+        <tr>
+          <td><%= number.join(", ") %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+</div>
